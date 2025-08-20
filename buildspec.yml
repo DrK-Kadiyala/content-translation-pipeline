@@ -4,7 +4,6 @@ phases:
   build:
     commands:
        - ls
-       - aws s3 sync . s3://drk-english-assets-bucket
-       - aws s3 sync . s3://drk-spanish-assets-bucket
+       - aws s3 sync app/ s3://drk-english-assets-bucket
        - python app/translate.py en es app/index.html
        - aws s3 cp es-index.html s3://drk-spanish-assets-bucket/index.html
